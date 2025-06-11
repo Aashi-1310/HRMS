@@ -47,10 +47,10 @@ This system allows employees to apply for leaves and managers to approve or reje
 ---
 ## Learning Outcomes
 
-Practiced HTML forms and input validation   
-Designed responsive UI with CSS   
-Implemented role-based login/signup system   
-Used JavaScript DOM manipulation for form handling and table generation   
-Learned to use localStorage for persisting data without a backend   
-Improved understanding of modular coding and user interface behavior
+- Practiced HTML forms and input validation   
+- Designed responsive UI with CSS   
+- Implemented role-based login/signup system   
+- Used JavaScript DOM manipulation for form handling and table generation   
+- Learned to use localStorage for persisting data without a backend   
+- Improved understanding of modular coding and user interface behavior
 
