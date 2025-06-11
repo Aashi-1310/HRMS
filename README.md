@@ -21,28 +21,28 @@ This system allows employees to apply for leaves and managers to approve or reje
 1. **Clone or Download the Repository**
    - Download the ZIP
 
-2. **Open `login.html`**
-   - Simply open the `login.html` file in your browser to start using the system.
+2. **Open index.html in Your Browser   
+    - This is the main entry point.
 
-3. **Choose Role**
-   - Add `?role=employee` or `?role=manager` in the URL to access different views:  
-     - Example for employee: `login.html?role=employee`  
-     - Example for manager: `login.html?role=manager`
+3. **Select Your Role**   
+    - Choose either Employee or Manager.   
+    - You'll be redirected to the login page (login.html?role=employee or login.html?role=manager).
 
-4. **Login or Register**
-   - New users can register with their role.
-   - After login:
-     - Employees go to `applyLeave.html`
-     - Managers go to `approval.html`
+4. **Register or Login**   
+   - If you're new, register using your email and password.   
+   - If already registered, simply log in.
+
+5. **After Login**   
+   - Employees go to applyLeave.html where they can apply for leave and view their history.   
+   - Managers go to approval.html where they can view pending applications and take action.
 
 ---
 
 ## Screenshots
-
-> Add screenshots by placing image files in your project and using markdown syntax like:
-![Login Page](screenshots/login.png)
-![Leave Application](screenshots/apply_leave.png)
-![Manager Dashboard](screenshots/manager_dashboard.png)
+![Index Page](Screenshot/index.png)
+![Login Page](Screenshot/login.png)
+![Leave Application](Screenshot/applyLeave.png)
+![Manager Dashboard](Screenshot/approval.png)
 
 ---
 ## Learning Outcomes
