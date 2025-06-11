@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Leave | HRMS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Apply for Leave</h2>
+    <form id="leaveForm">
+      <label for="leaveType">Leave Type:</label>
+      <select id="leaveType" required>
+        <option value="">Select</option>
+        <option value="Sick">Sick Leave</option>
+        <option value="Casual">Casual Leave</option>
+        <option value="Earned">Earned Leave</option>
+      </select>
+
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" required>
+
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" required>
+
+      <label for="reason">Reason:</label>
+      <textarea id="reason" required></textarea>
+
+      <button type="submit">Submit Application</button>
+    </form>
+
+    <div id="leaveHistorySection" style="display: none;">
+      <h3>Your Leave Applications</h3>
+      <table id="leaveTable">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Reason</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="employee.js"></script>
+</body>
+</html>

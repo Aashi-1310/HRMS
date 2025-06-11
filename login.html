@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container login-container">
+    <h2>HRMS Portal</h2>
+    <form id="loginForm" class="auth-form">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <input type="hidden" id="loginRole" value="">
+      <button type="submit" class="center-btn" >Login</button>
+    </form>
+
+    <form id="registerForm" class="auth-form" style="display: none;">
+      <input type="text" id="registerName" placeholder="Name" required>
+      <input type="email" id="registerEmail" placeholder="Email" required>
+      <input type="password" id="registerPassword" placeholder="Password" required>
+      <input type="hidden" id="registerRole" value="">
+      <button type="submit" class="center-btn">Register</button>
+    </form>
+    <div class="toggle-buttons">
+      <button id="showLogin">Login</button>
+      <button id="showRegister">Sign Up</button>
+    </div>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const role = urlParams.get('role') || 'employee';
+    document.getElementById('loginRole').value = role;
+    document.getElementById('registerRole').value = role;
+
+    const getUsers = () => JSON.parse(localStorage.getItem('users')) || [];
+    const saveUsers = (users) => localStorage.setItem('users', JSON.stringify(users));
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('registerName').value;
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+      const role = document.getElementById('registerRole').value;
+      let users = getUsers();
+
+      const userExists = users.some(user => user.email === email);
+      if (userExists) {
+        alert('User already exists!');
+      } else {
+        users.push({ name, email, password, role });
+        saveUsers(users);
+        alert('Registration successful! You can now login.');
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
+      }
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      const role = document.getElementById('loginRole').value;
+      const users = getUsers();
+
+      const matchedUser = users.find(user => user.email === email && user.password === password && user.role === role);
+      if (matchedUser) {
+        localStorage.setItem('loggedInUser', JSON.stringify(matchedUser));
+        if (role === 'manager') {
+          window.location.href = 'approval.html';
+        } else {
+          window.location.href = 'applyLeave.html';
+        }
+      } else {
+        alert('Invalid credentials or role. Please try again.');
+      }
+    });
+
+    // Toggle between login and register
+    document.getElementById('showLogin').addEventListener('click', () => {
+      document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('registerForm').style.display = 'none';
+    });
+
+    document.getElementById('showRegister').addEventListener('click', () => {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('registerForm').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
