@@ -39,10 +39,10 @@ This system allows employees to apply for leaves and managers to approve or reje
 ---
 
 ## Screenshots
-![Index Page](Screenshot/index.png)
-![Login Page](Screenshot/login.png)
-![Leave Application](Screenshot/applyLeave.png)
-![Manager Dashboard](Screenshot/approval.png)
+![Index Page](Screenshots/index.png)
+![Login Page](Screenshots/login.png) 
+![Leave Application](Screenshots/applyLeave.png)
+![Manager Dashboard](Screenshots/approval.png)
 
 ---
 ## Learning Outcomes
